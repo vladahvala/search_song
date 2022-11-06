@@ -134,8 +134,11 @@ class Window(Tk):
             self.song_name.config(text = self.engine.select_name_tracks(song)[0][0]) 
             self.artist.config(text = self.engine.select_name_tracks(song)[0][1])
             self.album.config(text = self.engine.select_name_tracks(song)[0][2])
-            millisec = int(self.engine.select_name_tracks(song)[0][3])
-            self.length.config(text = str(int(millisec/60000)) + " хв " + str(int((millisec%60000)/1000)) + " сек") #вивід трека у хв і сек        
+            self.length.config(text = self.millisec(int(self.engine.select_name_tracks(song)[0][3]))) 
+
+    def millisec(self, num): #переведення тривалості трека у хв і сек 
+            millisec = str(int(num/60000)) + " хв " + str(int((num%60000)/1000)) + " сек"
+            return millisec
         
     #розміщення вікна по центру екрана
     def center_(self):
