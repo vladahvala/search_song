@@ -41,13 +41,13 @@ class Window(Tk):
         left_bottom_frame.grid(row=1, column=0, rowspan=8,  sticky="N", padx = 30, pady=30)
 
         #створення 2 смуг прокручування Scrollbar
-        self.scroll_v =Scrollbar(left_bottom_frame, relief = 'solid', orient=VERTICAL)
+        self.scroll_v =Scrollbar(left_bottom_frame, relief = 'solid', orient=VERTICAL, width = 25)
         self.scroll_v.pack(side='right', fill=Y)
-        self.scroll_h =Scrollbar(left_bottom_frame, relief = 'solid', orient=HORIZONTAL)
+        self.scroll_h =Scrollbar(left_bottom_frame, relief = 'solid', orient=HORIZONTAL, width = 25)
         self.scroll_h.pack(side='bottom', fill=X)
 
         #створення Listbox
-        self.list_box = Listbox(left_bottom_frame, xscrollcommand=self.scroll_h.set, yscrollcommand=self.scroll_v.set, 
+        self.list_box = Listbox(left_bottom_frame, xscrollcommand=self.scroll_h.set, yscrollcommand=self.scroll_v.set, selectbackground="green",
                                  height=16, width=26, relief = 'solid', font=("Arial", 15), selectmode=SINGLE)
         self.list_box.pack()
         self.list_box.bind('<<ListboxSelect>>', self.click_track)
